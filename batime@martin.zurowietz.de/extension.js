@@ -1,11 +1,9 @@
 const ExtensionUtils = imports.misc.extensionUtils;
 const BaTime = ExtensionUtils.getCurrentExtension();
-const Lang = imports.lang;
 const Panel = imports.ui.main.panel;
 
-var BaTimeExtension = new Lang.Class({
-   Name: 'BaTime',
-   _init: function () {
+class BaTimeExtension {
+   constructor() {
       this.aggregateMenu = Panel.statusArea['aggregateMenu'];
       this.originalIndicator = this.aggregateMenu._power;
       this.customIndicator = new BaTime.imports.power.Indicator();
@@ -13,14 +11,14 @@ var BaTimeExtension = new Lang.Class({
          this.originalIndicator.indicators,
          this.customIndicator.indicators
       );
-   },
-   destroy: function () {
+   }
+   destroy() {
       this.aggregateMenu._indicators.replace_child(
          this.customIndicator.indicators,
          this.originalIndicator.indicators
       );
-   },
-});
+   }
+}
 
 let baTime;
 
