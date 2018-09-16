@@ -1,0 +1,11 @@
+
+{
+  "shell-version": ["3.28", "3.30"],
+  "uuid": "batime@martin.zurowietz.de",
+  "url": "https://github.com/mzur/gnome-shell-batime",
+  "settings-schema": "org.gnome.shell.extensions.batime",
+  "gettext-domain": "batime",
+  "version": -1,
+  "name": "Battery Time",
+  "description": "Show the remaining time until fully charged/discharged instead of the battery charge in percent in the panel."
+}
