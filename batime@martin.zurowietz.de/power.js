@@ -10,7 +10,9 @@ var Indicator = new Lang.Class({
    _getTime() {
       let seconds = 0;
 
-      if (this._proxy.State == UPower.DeviceState.CHARGING) {
+      if (this._proxy.State == UPower.DeviceState.FULLY_CHARGED) {
+         return '';
+      } else if (this._proxy.State == UPower.DeviceState.CHARGING) {
          seconds = this._proxy.TimeToFull;
       } else if (this._proxy.State == UPower.DeviceState.DISCHARGING) {
          seconds = this._proxy.TimeToEmpty;
