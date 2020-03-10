@@ -8,14 +8,14 @@ class BaTimeExtension {
       this.originalIndicator = this.aggregateMenu._power;
       this.customIndicator = new BaTime.imports.power.Indicator();
       this.aggregateMenu._indicators.replace_child(
-         this.originalIndicator.indicators,
-         this.customIndicator.indicators
+         this.originalIndicator,
+         this.customIndicator
       );
    }
    destroy() {
       this.aggregateMenu._indicators.replace_child(
-         this.customIndicator.indicators,
-         this.originalIndicator.indicators
+         this.customIndicator,
+         this.originalIndicator
       );
    }
 }
