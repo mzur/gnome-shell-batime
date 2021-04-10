@@ -36,6 +36,6 @@ var Indicator = GObject.registerClass(
 
    _sync() {
       super._sync();
-      this._percentageLabel.clutter_text.set_markup('<span size="smaller">' + this._getTime() + '</span>');
+      this._percentageLabel.text = this._getTime();
    }
 });

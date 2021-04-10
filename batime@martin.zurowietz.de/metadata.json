@@ -1,6 +1,6 @@
 
 {
-  "shell-version": ["3.36"],
+  "shell-version": ["40"],
   "uuid": "batime@martin.zurowietz.de",
   "url": "https://github.com/mzur/gnome-shell-batime",
   "settings-schema": "org.gnome.shell.extensions.batime",
