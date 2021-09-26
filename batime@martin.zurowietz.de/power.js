@@ -9,29 +9,29 @@ var Indicator = GObject.registerClass(
    _getTime() {
       let seconds = 0;
 
-      if (this._proxy.State == UPower.DeviceState.FULLY_CHARGED) {
+      if (this._proxy.State === UPower.DeviceState.FULLY_CHARGED) {
          return '';
-      } else if (this._proxy.State == UPower.DeviceState.CHARGING) {
+      } else if (this._proxy.State === UPower.DeviceState.CHARGING) {
          seconds = this._proxy.TimeToFull;
-      } else if (this._proxy.State == UPower.DeviceState.DISCHARGING) {
+      } else if (this._proxy.State === UPower.DeviceState.DISCHARGING) {
          seconds = this._proxy.TimeToEmpty;
       } else {
          // state is one of PENDING_CHARGING, PENDING_DISCHARGING
-         return _("Estimating…");
+         return _('Estimating…');
       }
 
       let time = Math.round(seconds / 60);
-      if (time == 0) {
+      if (time === 0) {
          // 0 is reported when UPower does not have enough data
          // to estimate battery life
-         return _("Estimating…");
+         return _('Estimating…');
       }
 
       let minutes = time % 60;
       let hours = Math.floor(time / 60);
 
       // Translators: this is <hours>:<minutes>
-      return _("%d\u2236%02d").format(hours, minutes);
+      return _('%d\u2236%02d').format(hours, minutes);
    }
 
    _sync() {
