@@ -1,5 +1,4 @@
 const { GObject} = imports.gi;
-const Lang = imports.lang;
 const UPower = imports.gi.UPowerGlib;
 const BaseIndicator = imports.ui.status.power.Indicator;
 
