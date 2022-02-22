@@ -14,8 +14,10 @@ var Indicator = GObject.registerClass(
          seconds = this._proxy.TimeToFull;
       } else if (this._proxy.State === UPower.DeviceState.DISCHARGING) {
          seconds = this._proxy.TimeToEmpty;
+      } else if (this._proxy.State === UPower.DeviceState.PENDING_CHARGE) {
+         return '';
       } else {
-         // state is one of PENDING_CHARGING, PENDING_DISCHARGING
+         // state is PENDING_DISCHARGE or UNKNOWN
          return _('Estimating…');
       }
 
