@@ -7,7 +7,8 @@ var Indicator = GObject.registerClass(
    // Adapted from _getStatus of the parent.
    _getTime() {
       let seconds = 0;
-      let state = this._systemItem.powerToggle._proxy.State;
+      let proxy = this._systemItem.powerToggle._proxy;
+      let state = proxy.State;
 
       if (state === UPower.DeviceState.FULLY_CHARGED) {
          return '';
