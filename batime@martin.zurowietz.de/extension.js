@@ -4,8 +4,8 @@ const Panel = imports.ui.main.panel;
 
 class BaTimeExtension {
    constructor() {
-      this.aggregateMenu = Panel.statusArea['aggregateMenu'];
-      this.originalIndicator = this.aggregateMenu._power;
+      this.aggregateMenu = Panel.statusArea['quickSettings'];
+      this.originalIndicator = this.aggregateMenu._system;
       this.customIndicator = new BaTime.imports.power.Indicator();
       this.aggregateMenu._indicators.replace_child(
          this.originalIndicator,
