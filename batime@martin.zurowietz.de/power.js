@@ -1,20 +1,21 @@
 const { GObject} = imports.gi;
 const UPower = imports.gi.UPowerGlib;
-const BaseIndicator = imports.ui.status.power.Indicator;
+const BaseIndicator = imports.ui.status.system.Indicator;
 
 var Indicator = GObject.registerClass(
    class Indicator extends BaseIndicator {
    // Adapted from _getStatus of the parent.
    _getTime() {
       let seconds = 0;
+      let proxy = this._systemItem.powerToggle._proxy;
 
-      if (this._proxy.State === UPower.DeviceState.FULLY_CHARGED) {
+      if (proxy.State === UPower.DeviceState.FULLY_CHARGED) {
          return '';
-      } else if (this._proxy.State === UPower.DeviceState.CHARGING) {
-         seconds = this._proxy.TimeToFull;
-      } else if (this._proxy.State === UPower.DeviceState.DISCHARGING) {
-         seconds = this._proxy.TimeToEmpty;
-      } else if (this._proxy.State === UPower.DeviceState.PENDING_CHARGE) {
+      } else if (proxy.State === UPower.DeviceState.CHARGING) {
+         seconds = proxy.TimeToFull;
+      } else if (proxy.State === UPower.DeviceState.DISCHARGING) {
+         seconds = proxy.TimeToEmpty;
+      } else if (proxy.State === UPower.DeviceState.PENDING_CHARGE) {
          return '';
       } else {
          // state is PENDING_DISCHARGE or UNKNOWN
