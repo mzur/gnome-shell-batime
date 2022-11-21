@@ -7,15 +7,15 @@ var Indicator = GObject.registerClass(
    // Adapted from _getStatus of the parent.
    _getTime() {
       let seconds = 0;
-      let proxy = this._systemItem.powerToggle._proxy;
+      let state = this._systemItem.powerToggle._proxy.State;
 
-      if (proxy.State === UPower.DeviceState.FULLY_CHARGED) {
+      if (state === UPower.DeviceState.FULLY_CHARGED) {
          return '';
-      } else if (proxy.State === UPower.DeviceState.CHARGING) {
+      } else if (state === UPower.DeviceState.CHARGING) {
          seconds = proxy.TimeToFull;
-      } else if (proxy.State === UPower.DeviceState.DISCHARGING) {
+      } else if (state === UPower.DeviceState.DISCHARGING) {
          seconds = proxy.TimeToEmpty;
-      } else if (proxy.State === UPower.DeviceState.PENDING_CHARGE) {
+      } else if (state === UPower.DeviceState.PENDING_CHARGE) {
          return '';
       } else {
          // state is PENDING_DISCHARGE or UNKNOWN
