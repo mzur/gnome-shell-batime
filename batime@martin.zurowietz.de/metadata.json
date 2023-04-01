@@ -9,5 +9,5 @@
   "gettext-domain": "batime",
   "version": -1,
   "name": "Battery Time",
-  "description": "Show the remaining time until fully charged/discharged instead of the battery charge in percent in the panel."
+  "description": "Show the remaining time until fully charged/discharged instead of the battery charge in percent in the panel.\n\nIf you appreciate this extension please consider to donate $1: https://www.paypal.me/drmzur"
 }
