@@ -6,14 +6,14 @@ class BaTimeExtension {
    constructor() {
       this.aggregateMenu = Panel.statusArea.quickSettings;
       this.originalIndicator = this.aggregateMenu._system;
-      this.aggregateMenu._system = this.customIndicator = new BaTime.imports.power.Indicator();
+      this.aggregateMenu._batteryTime = this.customIndicator = new BaTime.imports.power.Indicator();
       this.aggregateMenu._indicators.replace_child(
          this.originalIndicator,
          this.customIndicator
       );
    }
    destroy() {
-      this.aggregateMenu._system = this.originalIndicator;
+      delete this.aggregateMenu._batteryTime;
       this.aggregateMenu._indicators.replace_child(
          this.customIndicator,
          this.originalIndicator
