@@ -40,7 +40,7 @@ export default class Extension extends BaseExtension {
    constructor(metadata) {
       super(metadata);
       this._im = new InjectionManager();
-    }
+   }
 
    enable() {
       this._im.overrideMethod(Indicator.prototype, '_sync', function (_sync) {
@@ -52,14 +52,17 @@ export default class Extension extends BaseExtension {
          };
       });
 
-      // This is called if the extension is enabled after startup.
+      // This is called in case the extension is enabled after startup.
       // During startup, the _system indicator is not created at this point, yet.
-      if (panel.statusArea?.quickSettings?._system?._systemItem?.powerToggle) {
-         panel.statusArea.quickSettings._system._systemItem.powerToggle._sync();
-      }
+      this._syncToggle();
    }
+
    disable() {
       this._im.clear();
+      this._syncToggle();
+   }
+
+   _syncToggle() {
       if (panel.statusArea?.quickSettings?._system?._systemItem?.powerToggle) {
          panel.statusArea.quickSettings._system._systemItem.powerToggle._sync();
       }
