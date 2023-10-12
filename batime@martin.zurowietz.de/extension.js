@@ -37,12 +37,8 @@ const _powerToggleSyncOverride = function () {
 };
 
 export default class Extension extends BaseExtension {
-   constructor(metadata) {
-      super(metadata);
-      this._im = new InjectionManager();
-   }
-
    enable() {
+      this._im = new InjectionManager();
       this._im.overrideMethod(Indicator.prototype, '_sync', function (_sync) {
          return function () {
             const {powerToggle} = this._systemItem;
@@ -59,6 +55,7 @@ export default class Extension extends BaseExtension {
 
    disable() {
       this._im.clear();
+      this._im = null;
       this._syncToggle();
    }
 
