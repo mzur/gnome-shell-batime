@@ -3,7 +3,8 @@
   "shell-version": [
     "45",
     "46",
-    "47"
+    "47",
+    "48"
   ],
   "uuid": "batime@martin.zurowietz.de",
   "url": "https://github.com/mzur/gnome-shell-batime",
