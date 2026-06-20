@@ -16,7 +16,8 @@ const _powerToggleSyncOverride = function () {
    let seconds = 0;
    let state = this._proxy.State;
 
-   if (this._proxy.State === UPower.DeviceState.CHARGING) {
+   if (this._proxy.State === UPower.DeviceState.CHARGING ||
+       this._proxy.State === UPower.DeviceState.PENDING_CHARGE) {
       seconds = this._proxy.TimeToFull;
    } else if (this._proxy.State === UPower.DeviceState.DISCHARGING) {
       seconds = this._proxy.TimeToEmpty;
