@@ -1,0 +1,16 @@
+/* Battery Time — color-coded battery icon */
+
+/* Green: 76%–100% */
+.battery-icon-green {
+    color: #2ec27e;
+}
+
+/* Yellow: 26%–75% */
+.battery-icon-yellow {
+    color: #f5c211;
+}
+
+/* Red: 0%–25% */
+.battery-icon-red {
+    color: #c01c28;
+}
